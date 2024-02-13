@@ -1,0 +1,23 @@
+{
+    "name": "rignchen/database",
+    "description": "Library to handle SQL request",
+    "type": "library",
+    "require-dev": {
+        "symfony/var-dumper": "^7.0"
+    },
+    "license": "cc-by-sa",
+    "autoload": {
+        "psr-4": {
+            "Rignchen\\Database\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rignchen",
+            "email": "rinchendemort@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-pdo": "*"
+    }
+}
