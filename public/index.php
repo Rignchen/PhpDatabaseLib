@@ -16,3 +16,8 @@ $table->addRow([
     'name' => 'toto',
     'value' => 'tutu'
 ]);
+$table->addColumn('age', 'INTEGER');
+$table->addColumns([
+    'size' => 'INTEGER',
+    'weight' => 'INTEGER'
+]);
