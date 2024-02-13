@@ -5,6 +5,10 @@ namespace Rignchen\Database;
 class Table {
     public function __construct(private readonly Database $database, private string $name) {}
 
+    public function delete(): void {
+        $this->database->execute("drop table $this->name");
+    }
+
     public function addRow(array $values): void {
         $this->database->execute("insert into $this->name ("
                 . implode(",", array_keys($values))

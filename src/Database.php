@@ -23,7 +23,4 @@ readonly class Database {
                 . ")");
         return new Table($this, $name);
     }
-    public function removeTable(string $name): void {
-        $this->execute("drop table if exists $name");
-    }
 }
