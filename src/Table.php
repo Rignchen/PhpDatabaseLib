@@ -12,4 +12,13 @@ class Table {
                 . implode(",", array_map(fn($index) => ":$index", array_keys($values)))
                 . ")", $values);
     }
+
+    public function addColumn(string $string, string $string1) {
+		$this->database->execute("alter table $this->name add column $string $string1");
+    }
+    public function addColumns(array $columns) {
+        foreach ($columns as $column => $type) {
+            $this->addColumn($column, $type);
+        }
+    }
 }
