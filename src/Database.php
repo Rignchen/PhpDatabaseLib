@@ -13,4 +13,14 @@ readonly class Database {
         if ($this->debug)
         	echo $request . "<br>";
     }
+
+    /**
+     * @param array<string> $columns
+     */
+    public function createTable(string $name, array $columns): void {
+        $request = "create table if not exists $name ("
+                . implode("," , array_map(fn($index, $value) => "$index $value", array_keys($columns), $columns))
+                . ")";
+        $this->execute($request);
+    }
 }
