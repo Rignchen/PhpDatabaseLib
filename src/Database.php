@@ -18,9 +18,11 @@ readonly class Database {
      * @param array<string> $columns
      */
     public function createTable(string $name, array $columns): void {
-        $request = "create table if not exists $name ("
+        $this->execute("create table if not exists $name ("
                 . implode("," , array_map(fn($index, $value) => "$index $value", array_keys($columns), $columns))
-                . ")";
-        $this->execute($request);
+                . ")");
+    }
+    public function removeTable(string $name): void {
+        $this->execute("drop table if exists $name");
     }
 }
