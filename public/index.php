@@ -11,3 +11,4 @@ $db->createTable('identifier', [
     'name' => 'TEXT',
     'value' => 'TEXT'
 ]);
+$db->removeTable('identifier');
