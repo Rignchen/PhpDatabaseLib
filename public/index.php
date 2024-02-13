@@ -6,9 +6,13 @@ use Rignchen\Database\Database;
 $pdo = new PDO('sqlite:identifier.sqlite');
 $db = new Database($pdo, true);
 
-$db->createTable('identifier', [
+$table = $db->createTable('identifier', [
     'id' => 'INTEGER PRIMARY KEY',
     'name' => 'TEXT',
     'value' => 'TEXT'
 ]);
-$db->addRow('identifier', ['name' => 'test']);
+
+$table->addRow([
+    'name' => 'toto',
+    'value' => 'tutu'
+]);
