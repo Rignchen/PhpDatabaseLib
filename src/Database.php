@@ -25,4 +25,11 @@ readonly class Database {
     public function removeTable(string $name): void {
         $this->execute("drop table if exists $name");
     }
+    public function addRow(string $string, array $array): void {
+        $this->execute("insert into $string ("
+                . implode(",", array_keys($array))
+                . ") values ("
+                . implode(",", array_map(fn($index) => ":$index", array_keys($array)))
+                . ")", $array);
+    }
 }
